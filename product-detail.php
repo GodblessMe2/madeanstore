@@ -4,25 +4,44 @@
 <?php include("inc/header.php");?>
 
    <div class="container">
-      <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+     <!--  <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
          <a class="stext-109 cl8 hov-cl1 trans-04" href="index-2.html">Home <i aria-hidden="true" class="fa fa-angle-right m-l-9 m-r-10"></i></a> <a class="stext-109 cl8 hov-cl1 trans-04" href="product.html">Men <i aria-hidden="true" class="fa fa-angle-right m-l-9 m-r-10"></i></a> <span class="stext-109 cl4">Lightweight Jacket</span>
-      </div>
+      </div> -->
    </div>
    <section class="sec-product-detail bg0 p-t-65 p-b-60">
       <div class="container">
          <div class="row">
+            <?php 
+               require("config/config.php");
+
+               $id = mysqli_real_escape_string($conn, $_GET['details_id']);
+
+               $query = "SELECT * FROM products WHERE id = '$id'";
+
+                // Get result
+                $result = mysqli_query($conn, $query);
+
+                $final = mysqli_fetch_assoc($result);
+
+                // Free Result
+                mysqli_free_result($result);
+
+                // Close Connection 
+                mysqli_close($conn);
+
+            ?>
             <div class="col-md-6 col-lg-7 p-b-30">
                <div class="p-l-25 p-r-30 p-lr-0-lg">
                   <div class="wrap-slick3 flex-sb flex-w">
                      <div class="wrap-slick3-dots"></div>
                      <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
                      <div class="slick3 gallery-lb">
-                        <div class="item-slick3" data-thumb="images/product-detail-01.jpg">
+                        <div class="item-slick3" data-thumb="admin/<?php echo $final['picture'] ?>">
                            <div class="wrap-pic-w pos-relative">
-                              <img alt="IMG-PRODUCT" src="images/product-detail-01.jpg"> <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg"><i class="fa fa-expand"></i></a>
+                              <img alt="IMG-PRODUCT" src="admin/<?php echo $final['picture'] ?>"> <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="admin/<?php echo $final['picture']; ?>"><i class="fa fa-expand"></i></a>
                            </div>
                         </div>
-                        <div class="item-slick3" data-thumb="images/product-detail-02.jpg">
+                        <!-- <div class="item-slick3" data-thumb="images/product-detail-02.jpg">
                            <div class="wrap-pic-w pos-relative">
                               <img alt="IMG-PRODUCT" src="images/product-detail-02.jpg"> <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg"><i class="fa fa-expand"></i></a>
                            </div>
@@ -31,17 +50,17 @@
                            <div class="wrap-pic-w pos-relative">
                               <img alt="IMG-PRODUCT" src="images/product-detail-03.jpg"> <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-03.jpg"><i class="fa fa-expand"></i></a>
                            </div>
-                        </div>
+                        </div> -->
                      </div>
                   </div>
                </div>
             </div>
             <div class="col-md-6 col-lg-5 p-b-30">
                <div class="p-r-50 p-t-5 p-lr-0-lg">
-                  <h4 class="mtext-105 cl2 js-name-detail p-b-14">Lightweight Jacket</h4><span class="mtext-106 cl2">$58.79</span>
-                  <p class="stext-102 cl3 p-t-23">Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.</p>
+                  <h4 class="mtext-105 cl2 js-name-detail p-b-14"><?php echo $final['name']; ?></h4><span class="mtext-106 cl2">$<?php echo number_format($final['price']); ?></span>
+                  <p class="stext-102 cl3 p-t-23"><?php echo $final['description']; ?></p>
                   <div class="p-t-33">
-                     <div class="flex-w flex-r-m p-b-10">
+                     <!-- <div class="flex-w flex-r-m p-b-10">
                         <div class="size-203 flex-c-m respon6">
                            Size
                         </div>
@@ -67,8 +86,8 @@
                               <div class="dropDownSelect2"></div>
                            </div>
                         </div>
-                     </div>
-                     <div class="flex-w flex-r-m p-b-10">
+                     </div> -->
+                     <!-- <div class="flex-w flex-r-m p-b-10">
                         <div class="size-203 flex-c-m respon6">
                            Color
                         </div>
@@ -94,7 +113,7 @@
                               <div class="dropDownSelect2"></div>
                            </div>
                         </div>
-                     </div>
+                     </div> -->
                      <div class="flex-w flex-r-m p-b-10">
                         <div class="size-204 flex-w flex-m respon6-next">
                            <div class="wrap-num-product flex-w m-r-20 m-tb-10">
@@ -132,10 +151,10 @@
                <div class="tab-content p-t-43">
                   <div class="tab-pane fade show active" id="description" role="tabpanel">
                      <div class="how-pos2 p-lr-15-md">
-                        <p class="stext-102 cl6">Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie. Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero. Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.</p>
+                        <p class="stext-102 cl6"><?php echo $final['description']; ?></p>
                      </div>
                   </div>
-                  <div class="tab-pane fade" id="information" role="tabpanel">
+                 <!--  <div class="tab-pane fade" id="information" role="tabpanel">
                      <div class="row">
                         <div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
                            <ul class="p-lr-28 p-lr-15-sm">
@@ -147,7 +166,7 @@
                            </ul>
                         </div>
                      </div>
-                  </div>
+                  </div> -->
                   <div class="tab-pane fade" id="reviews" role="tabpanel">
                      <div class="row">
                         <div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
