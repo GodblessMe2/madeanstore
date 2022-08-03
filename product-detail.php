@@ -8,6 +8,7 @@
          <a class="stext-109 cl8 hov-cl1 trans-04" href="index-2.html">Home <i aria-hidden="true" class="fa fa-angle-right m-l-9 m-r-10"></i></a> <a class="stext-109 cl8 hov-cl1 trans-04" href="product.html">Men <i aria-hidden="true" class="fa fa-angle-right m-l-9 m-r-10"></i></a> <span class="stext-109 cl4">Lightweight Jacket</span>
       </div> -->
    </div>
+
    <section class="sec-product-detail bg0 p-t-65 p-b-60">
       <div class="container">
          <div class="row">
@@ -41,89 +42,31 @@
                               <img alt="IMG-PRODUCT" src="admin/<?php echo $final['picture'] ?>"> <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="admin/<?php echo $final['picture']; ?>"><i class="fa fa-expand"></i></a>
                            </div>
                         </div>
-                        <!-- <div class="item-slick3" data-thumb="images/product-detail-02.jpg">
-                           <div class="wrap-pic-w pos-relative">
-                              <img alt="IMG-PRODUCT" src="images/product-detail-02.jpg"> <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg"><i class="fa fa-expand"></i></a>
-                           </div>
-                        </div>
-                        <div class="item-slick3" data-thumb="images/product-detail-03.jpg">
-                           <div class="wrap-pic-w pos-relative">
-                              <img alt="IMG-PRODUCT" src="images/product-detail-03.jpg"> <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-03.jpg"><i class="fa fa-expand"></i></a>
-                           </div>
-                        </div> -->
                      </div>
                   </div>
                </div>
             </div>
             <div class="col-md-6 col-lg-5 p-b-30">
                <div class="p-r-50 p-t-5 p-lr-0-lg">
-                  <h4 class="mtext-105 cl2 js-name-detail p-b-14"><?php echo $final['name']; ?></h4><span class="mtext-106 cl2">$<?php echo number_format($final['price']); ?></span>
+                  <h4 class="mtext-105 cl2 js-name-detail p-b-14"><?php echo $final['name']; ?></h4>
+                  <span class="mtext-106 cl2">$<?php echo number_format($final['price']); ?></span>
                   <p class="stext-102 cl3 p-t-23"><?php echo $final['description']; ?></p>
                   <div class="p-t-33">
-                     <!-- <div class="flex-w flex-r-m p-b-10">
-                        <div class="size-203 flex-c-m respon6">
-                           Size
-                        </div>
-                        <div class="size-204 respon6-next">
-                           <div class="rs1-select2 bor8 bg0">
-                              <select class="js-select2" name="time">
-                                 <option>
-                                    Choose an option
-                                 </option>
-                                 <option>
-                                    Size S
-                                 </option>
-                                 <option>
-                                    Size M
-                                 </option>
-                                 <option>
-                                    Size L
-                                 </option>
-                                 <option>
-                                    Size XL
-                                 </option>
-                              </select>
-                              <div class="dropDownSelect2"></div>
-                           </div>
-                        </div>
-                     </div> -->
-                     <!-- <div class="flex-w flex-r-m p-b-10">
-                        <div class="size-203 flex-c-m respon6">
-                           Color
-                        </div>
-                        <div class="size-204 respon6-next">
-                           <div class="rs1-select2 bor8 bg0">
-                              <select class="js-select2" name="time">
-                                 <option>
-                                    Choose an option
-                                 </option>
-                                 <option>
-                                    Red
-                                 </option>
-                                 <option>
-                                    Blue
-                                 </option>
-                                 <option>
-                                    White
-                                 </option>
-                                 <option>
-                                    Grey
-                                 </option>
-                              </select>
-                              <div class="dropDownSelect2"></div>
-                           </div>
-                        </div>
-                     </div> -->
                      <div class="flex-w flex-r-m p-b-10">
                         <div class="size-204 flex-w flex-m respon6-next">
-                           <div class="wrap-num-product flex-w m-r-20 m-tb-10">
-                              <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-                                 <i class="fs-16 zmdi zmdi-minus"></i>
-                              </div><input class="mtext-104 cl3 txt-center num-product" name="num-product" type="number" value="1">
-                              <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-                                 <i class="fs-16 zmdi zmdi-plus"></i>
+                           <form action="carthandler.php?cart_id=<?php echo $final['id'] ?>&cart_name=<?php echo $final['name']?>&cart_price=<?php echo $final['price']?>&cart_image=<?php echo $final['picture']?>" method="POST">
+                              <div class="wrap-num-product flex-w m-r-20 m-tb-10">
+                                 <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                                    <i class="fs-16 zmdi zmdi-minus"></i>
+                                 </div>
+                                 <input name="values" class="mtext-104 cl3 txt-center num-product" type="number" value="1">
+                                 
+                                 <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                                    <i class="fs-16 zmdi zmdi-plus"></i>
+                                 </div>
                               </div>
-                           </div><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">Add to cart</button>
+                              <button onclick="location.href= " class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">Add to cart</button>
+                           </form>
                         </div>
                      </div>
                   </div>
@@ -536,7 +479,7 @@
 
            /*---------------------------------------------*/
 
-           $('.js-addcart-detail').each(function(){
+           $('#js-addcart-detail').each(function(){
                var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
                $(this).on('click', function(){
                    swal(nameProduct, "is added to cart !", "success");

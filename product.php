@@ -2,6 +2,8 @@
 
 <?php include("inc/head.php");?>
 <?php include("inc/header.php");?>
+<?php require_once("cart.php"); ?>  
+
 
 
    <div class="bg0 m-t-75 p-b-240">
@@ -75,6 +77,7 @@
                         </li>
                      </ul>
                   </div>
+
                   <div class="filter-col3 p-r-15 p-b-27">
                      <div class="mtext-102 cl2 p-b-15">
                         Color
